@@ -1,55 +1,63 @@
-const usuarios = [
-  {
-  "id": 7,
-  "email": "michael.lawson@reqres.in",
-  "first_name": "Michael",
-  "last_name": "Lawson",
-  "avatar": "https://reqres.in/img/faces/7-image.jpg"
-  },
-  {
-  "id": 8,
-  "email": "lindsay.ferguson@reqres.in",
-  "first_name": "Lindsay",
-  "last_name": "Ferguson",
-  "avatar": "https://reqres.in/img/faces/8-image.jpg"
-  },
-  {
-  "id": 9,
-  "email": "tobias.funke@reqres.in",
-  "first_name": "Tobias",
-  "last_name": "Funke",
-  "avatar": "https://reqres.in/img/faces/9-image.jpg"
-  },
-  {
-  "id": 10,
-  "email": "byron.fields@reqres.in",
-  "first_name": "Byron",
-  "last_name": "Fields",
-  "avatar": "https://reqres.in/img/faces/10-image.jpg"
-  },
-  {
-  "id": 11,
-  "email": "george.edwards@reqres.in",
-  "first_name": "George",
-  "last_name": "Edwards",
-  "avatar": "https://reqres.in/img/faces/11-image.jpg"
-  },
-  {
-  "id": 12,
-  "email": "rachel.howell@reqres.in",
-  "first_name": "Rachel",
-  "last_name": "Howell",
-  "avatar": "https://reqres.in/img/faces/12-image.jpg"
-  }
-  ]
 
 
-  // recorrer todos los nombres
+const getPokemon = async (id) => {
+  const peticion = await fetch('https://pokeapi.co/api/v2/pokemon/' + id );
+  const data = await peticion.json()
+  console.log(data)
+  return data
+}
 
-  usuarios.forEach( ({first_name, last_name}) => {
-    document.querySelector('body').innerHTML += `<li>${first_name} ${last_name}</li>`;
-    console.log(first_name + ' ' + last_name);
-  })
+
+
+
+
+
+// const Pokemon = new Promise((resolve, reject) => {
+//   const id = Math.floor(Math.random() * 100 + 1 )
+//   const peticion = fetch('https://pokeapi.co/api/v2/pokemon/' + id);
+
+//   if (peticion) {
+//     resolve ( peticion.then((data) =>
+//     data.json().then( resp => resp)
+//   ))
+
+//   } else {
+//     reject(error);
+//   }
+// });
+
+
+// recorrer todos los nombres
+
+// usuariosPromise.then((usuarios) => {
+//   usuarios.forEach( usuario  => {
+//     // console.log(usuario.name.first, usuario.name.last, usuario.email, usuario.picture.large)
+//     document.querySelector('body').innerHTML += `
+
+//       <div class='card'>
+//         <div><img src="${usuario.picture.large}"></div>
+//         <p>${usuario.name.first} ${usuario.name.last}</p>
+//         <p class="email">${usuario.email}</p>
+//       </div>`;
+//   });
+// }
+// )
+
+
+
+for (let i = 1; i <= 10; i++) {
+
+  getPokemon(i).then((pokemon) => {
+    document.querySelector('body').innerHTML += `
+          <div class='card'>
+            <div><img src="${pokemon.sprites.other.dream_world.front_default}"></div>
+            <p>${pokemon.name}</p>
+          </div>`;
+    })
+
+
+}
+
 
 
 

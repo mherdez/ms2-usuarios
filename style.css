@@ -1,0 +1,32 @@
+img {
+  width: 60px;
+}
+p {
+  display: inline-block;
+  margin: 3px;
+  font-weight: bold;
+}
+.card {
+  background-color: antiquewhite;
+  border: 2px solid gray;
+  width: 100px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.email {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px
+}
